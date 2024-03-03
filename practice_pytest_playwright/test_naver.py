@@ -11,4 +11,4 @@ class TestNaver:
         page.goto("http://www.naver.com", wait_until="load")
         # assert page.locator("a").filter(has_text=re.compile(r"^NAVER$")).is_visible()
 
-        expect(page.locator("a").filter(has_text=re.compile(r"^NAVER$"))).to_be_hidden()
+        expect(page.locator("a").filter(has_text=re.compile(r"^NAVER$"))).to_be_visible()
