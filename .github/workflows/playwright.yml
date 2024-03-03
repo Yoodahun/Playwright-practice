@@ -27,7 +27,7 @@ jobs:
     - name: Ensure browsers are installed
       run: python -m playwright install --with-deps
     - name: Run Test
-      run: pytest --alluredir=allure-report --tracing=retain-on-failure
+      run: pytest --tracing=retain-on-failure
 
     - name: Get Allure history
       uses: actions/checkout@v2
