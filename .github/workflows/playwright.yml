@@ -53,7 +53,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v2
       env:
         PERSONAL_TOKEN: ${{ secrets.TOKEN }}
-        PUBLISH_BRANCH: main
+        PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
 
     - uses: actions/upload-artifact@v4
