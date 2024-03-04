@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Mar 04 14:36:35 GMT 2024","Mon Mar 04 14:36:37 GMT 2024","1863","practice_pytest_playwright","test_naver","TestNaver","","","test_naver_home[chromium]",""
+"passed","Mon Mar 04 14:36:37 GMT 2024","Mon Mar 04 14:36:38 GMT 2024","1009","practice_pytest_playwright","test_naver","TestNaver","","","test_naver_home_with_fail[chromium]",""
