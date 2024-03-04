@@ -1,0 +1,1 @@
+[{"uid":"47ff02b7ce9f107f","name":"test_naver_home[chromium]","time":{"start":1709562313438,"stop":1709562316075,"duration":2637},"status":"passed","severity":"normal"},{"uid":"bf8f6bade1302d3","name":"test_naver_home_with_fail[chromium]","time":{"start":1709562316134,"stop":1709562322255,"duration":6121},"status":"failed","severity":"normal"}]
