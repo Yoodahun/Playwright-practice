@@ -21,7 +21,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run Test
-      run: pytest practice_pytest_playwright/test_multi_browsing.py --alluredir=allure-results
+      run: pytest -n 2 practice_pytest_playwright/test_multi_browsing.py --alluredir=allure-results
 
     - name: Get Allure history
       uses: actions/checkout@v3
