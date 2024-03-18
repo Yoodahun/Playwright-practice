@@ -3,9 +3,11 @@ on:
   push:
     branches: [ main ]
 jobs:
-  test:
+  chromium_webkit:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright/python:v1.41.2-jammy
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python
@@ -18,14 +20,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Ensure browsers are installed
-      run: |
-        python -m playwright install chromium --with-deps
-        python -m playwright install chrome --with-deps
-        python -m playwright install msedge --with-deps
-
     - name: Run Test
-      run: pytest practice_pytest_playwright/test_multi_browsing.py --alluredir=allure-results --browser-channel chrome
+      run: pytest -n 2 practice_pytest_playwright/test_multi_browsing.py --alluredir=allure-results --browser chromium --browser webkit
 
     - name: Get Allure history
       uses: actions/checkout@v3
@@ -55,4 +51,52 @@ jobs:
         publish_branch: gh-pages
         publish_dir: allure-history
 
+  chrome:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@master
+      with:
+        python-version: '3.11'
 
+    - name: Ensure browsers are installed
+      run: |
+        python -m playwright install chrome
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Test
+      run: pytest -n 2 practice_pytest_playwright/test_multi_browsing.py --alluredir=allure-results --browser-channel chrome
+
+    - name: Get Allure history
+      uses: actions/checkout@v3
+      if: always()
+      continue-on-error: true
+      with:
+        ref: gh-pages
+        path: gh-pages
+
+
+    - name: Allure report action from marketplace
+      uses: simple-elf/allure-report-action@master
+      if: always()
+      with:
+        allure_results: allure-results
+        gh_pages: gh-pages
+        allure_report: allure-report
+        allure_history: allure-history
+        keep_reports: 20
+
+
+    - name: Deploy report to Github Pages
+      if: always()
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: allure-history
