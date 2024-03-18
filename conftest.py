@@ -25,6 +25,9 @@ def browser_context_args(browser_context_args: Dict, is_chromium: bool):
         **browser_context_args
     }
 
+    args["user_agent"] ='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
+
+
     if is_chromium:
         args["permissions"] = ["camera", "microphone"]
 
