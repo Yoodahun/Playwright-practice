@@ -44,7 +44,7 @@ class TestMultiBrowsing():
         another_page.get_by_placeholder("검색어를 입력해 주세요").fill("Test5678")
         another_page.get_by_role("button", name="검색", exact=True).click()
         time.sleep(2)
-        expect(another_page.get_by_role("link", name="NAVER", exact=True)).to_be_hidden()
+        expect(another_page.get_by_role("link", name="NAVER", exact=True)).to_be_visible()
 
         # another_context.tracing.stop(path="trace2.zip")
 
