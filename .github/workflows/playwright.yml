@@ -69,8 +69,6 @@ jobs:
         pip install -r requirements.txt
 
     - uses: browser-actions/setup-chrome@v1
-    - run: |
-        ${{ steps.setup-chrome.outputs.chrome-path }} --version      
 
     - name: Run Test
       run: pytest -n 2 practice_pytest_playwright/test_multi_browsing.py --alluredir=allure-results --browser-channel chrome
@@ -122,8 +120,6 @@ jobs:
         pip install -r requirements.txt
 
     - uses: browser-actions/setup-edge@v1
-    - name: Print Edge version
-      run: (Get-Item (Get-Command msedge).Source).VersionInfo.ProductVersion
 
     - name: Run Test
       run: pytest -n 2 practice_pytest_playwright/test_multi_browsing.py --alluredir=allure-results --browser-channel msedge
