@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Mar 18 12:04:44 GMT 2024","Mon Mar 18 12:04:52 GMT 2024","8358","practice_pytest_playwright","test_multi_browsing","TestMultiBrowsing","","","test_multi_browsing2[chromium]",""
+"passed","Mon Mar 18 12:04:35 GMT 2024","Mon Mar 18 12:04:46 GMT 2024","10298","practice_pytest_playwright","test_multi_browsing","TestMultiBrowsing","","","test_multi_browsing[webkit]",""
+"passed","Mon Mar 18 12:04:46 GMT 2024","Mon Mar 18 12:04:57 GMT 2024","11473","practice_pytest_playwright","test_multi_browsing","TestMultiBrowsing","","","test_multi_browsing2[webkit]",""
+"passed","Mon Mar 18 12:04:35 GMT 2024","Mon Mar 18 12:04:44 GMT 2024","8737","practice_pytest_playwright","test_multi_browsing","TestMultiBrowsing","","","test_multi_browsing[chromium]",""
