@@ -20,8 +20,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Ensure browsers are installed
+      run: |
+        python -m playwright install chrome
+        python -m playwright install msedge
+
     - name: Run Test
-      run: pytest -n 2 practice_pytest_playwright/test_multi_browsing.py --alluredir=allure-results
+      run: pytest practice_pytest_playwright/test_multi_browsing.py --alluredir=allure-results --browser-channel chrome
 
     - name: Get Allure history
       uses: actions/checkout@v3
