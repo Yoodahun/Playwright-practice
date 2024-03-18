@@ -16,10 +16,6 @@ def browser_type_launch_args(browser_type_launch_args: Dict, is_webkit, is_chrom
 
         }
 
-    if is_webkit:
-        args["args"] = ["--use-fake-ui-for-media-stream",
-                        "--use-fake-device-for-media-stream"]
-
     return args
 
 
