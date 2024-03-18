@@ -6,8 +6,6 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright/python:v1.41.2-jammy
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python
@@ -22,8 +20,9 @@ jobs:
 
     - name: Ensure browsers are installed
       run: |
-        python -m playwright install chrome
-        python -m playwright install msedge
+        python -m playwright install chromium --with-deps
+        python -m playwright install chrome --with-deps
+        python -m playwright install msedge --with-deps
 
     - name: Run Test
       run: pytest practice_pytest_playwright/test_multi_browsing.py --alluredir=allure-results --browser-channel chrome
